@@ -1,3 +1,4 @@
 ```sh
-npm install
+npm install;
+npm run main;
 ```
