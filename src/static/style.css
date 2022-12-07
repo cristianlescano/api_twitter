@@ -56,9 +56,10 @@
 }
 
 .post-link {
+  display: block;
   font-size: 1.3rem;
   margin-top: 1rem;
-  display: block;
+  margin-bottom: 1rem;
 }
 
 .post-user-info i {

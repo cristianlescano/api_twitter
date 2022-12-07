@@ -75,7 +75,7 @@ async function repintaTodo(index) {
   } else {
     index++;
   }
-  //repintaTodo(index);
+  repintaTodo(index);
 }
 
 // ejecuto la funcion ni bien carga la pagina
