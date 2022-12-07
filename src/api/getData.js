@@ -6,7 +6,7 @@ const twitterClient = new TwitterApi(
 
 const readOnlyClient = twitterClient.readOnly;
 
-const user = await readOnlyClient.v2.userByUsername("elonmusk");
+const user = await readOnlyClient.v2.userByUsername("cryptob_chain");
 
 console.log(user.data.id);
 

@@ -11,7 +11,7 @@ function trae() {
     success: (d) => {
       // cada vez que ingresa seteo que no viene nuevos por default
       tieneNuevo = false;
-      for (i = 0; i < d.length; i++) {
+      for (i = 0; i < 5; i++) {
         // solo ingresan los tweets que no esten cargados
         if (!ids.includes(d[i].id)) {
           // indico que vino un nuevo tweet}
@@ -27,19 +27,29 @@ function trae() {
       if (tieneNuevo) repintaTodo();
 
       // consulta de nuevo cada 300 milisegundos
-      setTimeout(() => trae(), 300);
+      setTimeout(() => trae(), 5000);
     },
   });
 }
 function repintaTodo() {
   t = "";
-  // recorro todos los tweets en memoria y los pongo cmo divs
-  for (i = 0; i < tweets.length; i++) {
-    t += "<div class='styloTweet'>" + tweets[i].text + "</div>";
-  }
-  // los ingreso en el div con id #posts
-  $("#posts").html(t);
+  i = 0;
+  var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+  var regex = new RegExp(expression);
+  
+  tweets.forEach(function (item) {
+    setTimeout(function () {
+      t = item.text;
+      link = t.match(regex)
+      texto = t.replace(link, ' ')
+      
+      $("#api-texto").html(texto);
+      $("#api-link").html(link).attr("href", link);
+    }, 5000 * i++)
+  })
 }
+
+
 // ejecuto la funcion ni bien carga la pagina
 $(document).ready(() => {
   trae();

@@ -55,6 +55,11 @@
   margin-bottom: 1rem;
 }
 
+.post-link {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
 .post-user-info i {
   font-size: 1.6rem;
   color: #1aa1f5;
@@ -81,13 +86,4 @@
   font-size: 1.7rem;
   color: #868383;
   margin-right: 6rem;
-}
-
-.styloTweet {
-  border: 1px solid #ccc;
-  margin: auto;
-  max-width: 400px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
 }
