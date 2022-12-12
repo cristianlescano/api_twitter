@@ -63,12 +63,12 @@ async function repintaTodo(index) {
       '<img class="post-img" src="'+ u +'">'
   }
 
-  $("#post-content").animate({ opacity: 0 }, 200);
-  await sleep(200);
+  $("#post-content").animate({ opacity: 0 }, 500);
+  await sleep(500);
   $("#api-texto").html(texto);
   $("#image").html(img);
   $("#links").html(te);
-  $("#post-content").animate({ opacity: 1 }, 200);
+  $("#post-content").animate({ opacity: 1 }, 500);
 
   await sleep(15000);
   if (index >= tweets.length - 1) {
