@@ -16,16 +16,13 @@ async function trae() {
       // indico que vino un nuevo tweet}
       tieneNuevo = true;
 
-      //pongo en memoria tanto el id como el tweet
-      tweets.push({ text: d[i].text });
+      //pongo en memoria tanto el id como el tweet y las url
+      tweets.push({ text: d[i].text, url: d[i].url});
       ids.push(d[i].id);
     }
   }
 
-  // si viene algun tweet nuevo repinta todo
-  //if (tieneNuevo) repintaTodo(0);
-
-  // consulta de nuevo cada 300 milisegundos
+  // tiempo de consulta
   setTimeout(() => trae(), 5000);
 }
 
@@ -36,8 +33,6 @@ function sleep(ms) {
 }
 
 async function repintaTodo(index) {
-  console.log("El index es: " + index);
-  t = "";
   i = 0;
   var expression =
     /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
@@ -45,27 +40,33 @@ async function repintaTodo(index) {
 
   const unTweet = tweets[index];
   t = unTweet.text;
+  u = unTweet.url;
+  console.log(u)
   link = t.match(regex);
   texto = t;
 
-  console.log("---");
-  console.log(link);
-  //let links = link.split("https://");
   let te = "";
+  let img = ""
   if (link) {
     for (e = 0; e < link.length; e++) {
       texto = texto.replace(link[e], "");
       te +=
-        '<a id="api-link" class="post-link" href="https://' +
+        '<a class="post-link" href="https://' +
         link[e] +
         '" target="_blank">' +
         link[e] +
         "</a>";
     }
   }
+  if (u != undefined){
+    img +=
+      '<img class="post-img" src="'+ u +'">'
+  }
+
   $("#post-content").animate({ opacity: 0 }, 200);
   await sleep(200);
   $("#api-texto").html(texto);
+  $("#image").html(img);
   $("#links").html(te);
   $("#post-content").animate({ opacity: 1 }, 200);
 

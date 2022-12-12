@@ -11,12 +11,24 @@ const user = await readOnlyClient.v2.userByUsername("cryptob_chain");
 console.log(user.data.id);
 
 const todosLosTweets = await readOnlyClient.v2.userTimeline(user.data.id, {
-  exclude: "replies",
+  exclude : "replies",
+  expansions: 'attachments.media_keys',
+  'media.fields': 'url',
 });
 
 let tweets = [];
+
 for (const unTweet of todosLosTweets) {
-  tweets.push(unTweet);
+  let link = 'a'
+  unTweet.attachments?.media_keys.forEach ((data12) => {
+    todosLosTweets.data.includes.media.forEach ((data25) => {
+      if(data12 == data25.media_key) {
+        return link = data25.url
+      }
+    }) 
+    unTweet.url = link 
+  })
+  tweets.push(unTweet)
 }
 
 export default tweets;
