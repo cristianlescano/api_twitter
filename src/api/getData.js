@@ -12,7 +12,6 @@ console.log('El ID del usuario es: ' + user.data.id);
 
 const todosLosTweets = await readOnlyClient.v2.userTimeline(user.data.id, {
   exclude : "replies",
-  exclude : "retweets",
   expansions: 'attachments.media_keys',
   'media.fields': 'url',
 });
