@@ -19,7 +19,7 @@ const todosLosTweets = await readOnlyClient.v2.userTimeline(user.data.id, {
 let tweets = [];
 
 for (const unTweet of todosLosTweets) {
-  let link = 'a'
+  let link = ''
   unTweet.attachments?.media_keys.forEach ((data12) => {
     todosLosTweets.data.includes.media.forEach ((data25) => {
       if(data12 == data25.media_key) {
