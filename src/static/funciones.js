@@ -70,7 +70,7 @@ async function repintaTodo(index) {
   $("#links").html(te);
   $("#post-content").animate({ opacity: 1 }, 200);
 
-  await sleep(5000);
+  await sleep(15000);
   if (index >= tweets.length - 1) {
     index = 0;
   } else {
