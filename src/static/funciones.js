@@ -23,7 +23,7 @@ async function trae() {
   }
 
   // tiempo de consulta
-  setTimeout(() => trae(), 5000);
+  setTimeout(() => trae(), 300);
 }
 
 function sleep(ms) {
